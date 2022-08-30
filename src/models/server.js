@@ -31,6 +31,12 @@ class Server {
   middlewares() {
     //Cors
     this.app.use(cors());
+
+    //Parseo del body
+    this.app.use(express.json());
+
+    //Directorio publico
+    this.app.use(express.static('src/public'))
   }
 
   async apollo() {
