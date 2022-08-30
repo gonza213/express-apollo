@@ -17,7 +17,13 @@ const validarJWT = async (req = response) => {
     raw: true
   })
 
+  //Si no existe ususuario
   if(!usuario){
+    throw new Error("El usuario no esta autorizado.");
+  }
+
+  //Si el usuario no esta habilitado
+  if(!usuario.estado){
     throw new Error("El usuario no esta autorizado.");
   }
 
